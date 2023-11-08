@@ -1,0 +1,78 @@
+expenses=[]
+expense1={'amount':'122.0','category':'T-Shirt'}
+expenses.append(expense1)
+expense2={'amount':'200.0','category':'Shoes'}
+expenses.append(expense2)
+def removeexpense():
+    while True:
+        listexpenses()
+        print("what expense would you like to remove")
+        try:
+            expensetoremove=int(input(">"))
+            del expenses[expensetoremove]
+        except:
+            print("Invalid input!please select another option")
+def printMenu():
+    print("Please Select the below options")
+    print("1.Add expense")
+    print("2.Remove expense")
+    print("3.List all Expenses")
+def addexpense(amount,category):
+    expense={'amount':amount,'category':category}
+    expenses.append(expense)
+def listexpenses():
+    print("-----Here your expenses-----")
+    counter=0
+    for expense in expenses:
+        print("#",counter,"-",expense['amount'],"-",expense['category'])
+        counter=counter+1
+    print("\n\n")
+if __name__=="__main__":  
+    
+    while True:
+        printMenu()
+        optionSelected=input(">")
+        if(optionSelected=="1"):
+            print("how much was this expense")
+            while True:
+                try:
+                   amountToadd=input(">")
+                   break
+                except: 
+                     print("Invalid input!please select another option")
+            print("what category was this expense?")
+            while True:
+                try:
+                    category=input(">")
+                    break
+                except:
+                    print("Invalid input!please select another option")
+            addexpense(amountToadd,category)
+        elif(optionSelected=="2"):
+            removeexpense()
+        elif(optionSelected=="3"):
+            listexpenses()
+        else:
+            print("Invalid input!please select another option")
+
+
+output:
+Please Select the below options
+1.Add expense
+2.Remove expense
+3.List all Expenses
+> 1
+how much was this expense
+> 670
+what category was this expense?
+> shoes
+Please Select the below options
+1.Add expense
+2.Remove expense
+3.List all Expenses
+> 3
+-----Here your expenses-----
+# 0 - 122.0 - T-Shirt
+# 1 - 200.0 - Shoes
+# 2 - 670 - shoes
+
